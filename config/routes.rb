@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  get '/students/dashboard', to: 'students#dashboard'
+  resources :students
+  resources :instructors
+  resources :courses
+  resources :cohorts
 end

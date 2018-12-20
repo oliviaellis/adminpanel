@@ -1,2 +1,9 @@
-<h1>Instructors#index</h1>
-<p>Find me in app/views/instructors/index.html.erb</p>
+<h1>Instructors</h1>
+<% @instructors.each do |i| %>
+  <h2><%= i.first_name%> <%= i.last_name%></h2>
+  <h3><%= i.age%></h3>
+  <h3><%= i.education %></h3>
+  <h3><%= i.salary %></h3>
+<% end %>
+
+<%= link_to 'New Instructor', new_instructor_path %>

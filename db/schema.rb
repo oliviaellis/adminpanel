@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_210400) do
+ActiveRecord::Schema.define(version: 2018_12_19_200450) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -18,6 +26,20 @@ ActiveRecord::Schema.define(version: 2018_12_18_210400) do
     t.date "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cohorts_courses", force: :cascade do |t|
+    t.integer "cohort_id"
+    t.integer "course_id"
+    t.index ["cohort_id"], name: "index_cohorts_courses_on_cohort_id"
+    t.index ["course_id"], name: "index_cohorts_courses_on_course_id"
+  end
+
+  create_table "cohorts_instructors", force: :cascade do |t|
+    t.integer "cohort_id"
+    t.integer "instructor_id"
+    t.index ["cohort_id"], name: "index_cohorts_instructors_on_cohort_id"
+    t.index ["instructor_id"], name: "index_cohorts_instructors_on_instructor_id"
   end
 
   create_table "cohorts_students", force: :cascade do |t|

@@ -1,2 +1,12 @@
-<h1>Cohorts#index</h1>
-<p>Find me in app/views/cohorts/index.html.erb</p>
+<h1>Cohorts</h1>
+<% @cohorts.each do |c| %>
+  <h2><%= c.name%><h2>
+  <h3><%= c.start%> to <%= c.end%></h3>
+  <ul>
+  <% c.students.each do |s| %>
+    <li><%= s.first_name %> <%= s.last_name %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'New Cohort', new_cohort_path %>
