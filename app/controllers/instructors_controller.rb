@@ -23,6 +23,24 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.find(params[:id])
   end
 
+  def edit
+    @instructor = Instructor.find(params[:id])
+  end
+
+  def update
+    @instructor = Instructor.find(params[:id])
+    if @instructor.update_attributes(instructor_params)
+      redirect_to @instructor
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @instructor = Instructor.find(params[:id])
+    @instructor.destroy
+  end
+
   private
 
   def instructor_params

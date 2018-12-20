@@ -1,8 +1,11 @@
 <h1>Students</h1>
 <% @students.each do |s| %>
-  <h2><%= s.first_name%> <%= s.last_name%></h2>
+  <h2><%= link_to s.name, student_path(s) %></h2>
   <h3><%= s.age%></h3>
   <h3><%= s.education %></h3>
+  <h4><%= link_to "Delete student", student_path(s), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
+  <!-- Now I just need to figure out how to get the information off the page without reloading -->
+
 <% end %>
 
 <%= link_to 'New Student', new_student_path %>

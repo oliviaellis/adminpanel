@@ -1,0 +1,8 @@
+<%= @cohort.name %>
+<ul>
+<% @cohort.students.each do |s| %>
+  <li><%= s.name %></li>
+  <%= link_to "delete", cohort_path(student_id: s.id), method: :delete, data: { confirm: 'You sure?'} %>
+<% end %>
+</ul>
+<%= link_to "Edit", edit_cohort_path %>

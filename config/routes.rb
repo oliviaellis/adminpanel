@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :students
   resources :instructors
   resources :courses
-  resources :cohorts
+  resources :cohorts, except: :destroy
+  delete '/cohorts/:id/', to: 'cohorts#remove_student_from_cohort'
 end
