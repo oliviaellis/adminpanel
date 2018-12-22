@@ -1,10 +1,10 @@
 <h1>Instructors</h1>
 <% @instructors.each do |i| %>
-  <h2><%= link_to i.name, instructor_path(i) %></h2>
+  <h2><%= link_to i.name, admin_instructor_path(id: i.id) %></h2>
   <h3><%= i.age%></h3>
   <h3><%= i.education %></h3>
   <h3><%= i.salary %></h3>
-  <h4><%= link_to "Delete instructor", instructor_path(i), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
+  <h4><%= link_to "Delete instructor", admin_instructor_path(id: i.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
 <% end %>
 
-<%= link_to 'New Instructor', new_instructor_path %>
+<%= link_to 'New Instructor', new_admin_instructor_path %>

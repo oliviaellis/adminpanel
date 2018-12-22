@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_200450) do
+ActiveRecord::Schema.define(version: 2018_12_21_224419) do
 
   create_table "admins", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.boolean "admin"
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -56,23 +59,10 @@ ActiveRecord::Schema.define(version: 2018_12_19_200450) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "instructors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "age"
-    t.integer "salary"
-    t.integer "education"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "instructors" because of following StandardError
+#   Unknown type 'password_digest' for column 'string'
 
-  create_table "students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "age"
-    t.integer "education"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "students" because of following StandardError
+#   Unknown type 'password_digest' for column 'string'
 
 end

@@ -1,4 +1,4 @@
-class CreateCohortsStudents < ActiveRecord::Migration[5.2]
+class CreateStudentsCohorts < ActiveRecord::Migration[5.2]
   def change
     create_table :cohorts_students do |t|
       t.references :cohort, foreign_key: true

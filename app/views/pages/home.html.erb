@@ -1,5 +1,30 @@
 <h1>Home</h1>
-<%= link_to 'Students', students_path %>
-<%= link_to 'Instructors', instructors_path %>
-<%= link_to 'Courses', courses_path %>
-<%= link_to 'Cohorts', cohorts_path %>
+<br><br>
+<h2>Admin Login</h2>
+<%= form_tag admin_login_path do |form| %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>
+<br><br>
+<h2>Student Login</h2>
+<%= form_tag student_login_path do |form| %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>
+<br><br>
+<h2>Instructor Login</h2>
+<%= form_tag instructor_login_path do |form| %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>
+<br><br>
+<%= link_to 'New Admin', new_admin_path %>

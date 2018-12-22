@@ -1,9 +1,9 @@
 <h1>Courses</h1>
 <% @courses.each do |c| %>
-  <h2><%= link_to c.name, course_path(c) %></h2>
+  <h2><%= link_to c.name, admin_course_path(id: c.id) %></h2>
   <h3><%= c.hours%> hours</h3>
-  <h4><%= link_to "Delete course", course_path(c), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
+  <h4><%= link_to "Delete course", admin_course_path(id: c.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
 
 <% end %>
 
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_admin_course_path %>

@@ -1,0 +1,8 @@
+<h1>Admin Home</h1>
+<h2><%= @admin.name %></h2>
+<%= link_to 'Log Out', logout_path %>
+<br><br>
+<%= link_to 'Students', admin_students_path(session[:user_id]) %>
+<%= link_to 'Instructors', admin_instructors_path(session[:user_id]) %>
+<%= link_to 'Courses', admin_courses_path(session[:user_id]) %>
+<%= link_to 'Cohorts', admin_cohorts_path(session[:user_id]) %>
