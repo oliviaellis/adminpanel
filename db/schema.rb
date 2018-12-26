@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_224419) do
+ActiveRecord::Schema.define(version: 2018_12_21_190710) do
 
   create_table "admins", force: :cascade do |t|
     t.string "first_name"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2018_12_21_224419) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
-    t.boolean "admin"
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
@@ -60,9 +59,9 @@ ActiveRecord::Schema.define(version: 2018_12_21_224419) do
   end
 
 # Could not dump table "instructors" because of following StandardError
-#   Unknown type 'password_digest' for column 'string'
+#   Unknown type '' for column 'string'
 
 # Could not dump table "students" because of following StandardError
-#   Unknown type 'password_digest' for column 'string'
+#   Unknown type '' for column 'string'
 
 end

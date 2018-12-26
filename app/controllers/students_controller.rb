@@ -1,7 +1,4 @@
 class StudentsController < ApplicationController
-  before_action :admin_only
-  before_action :user_page, only: [:show]
-
   def new
     @admin = Admin.find(params[:admin_id])
     @student = Student.new
@@ -49,22 +46,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :password, :age, :education)
-  end
-
-  def admin_only
-    unless @current_user.admin?
-      redirect_to :back, :alert => "Access denied"
-    end
-  end
-
-  def user_page
-    unless @current_user.admin?
-      unless @current_user == Student.find(params[:id])
-        flash[:error] = "Access denied."
-        redirect_to home_path
-      end
-    end
+    params.require(:student).permit(:first_name, :last_name, :email, :age, :education)
   end
 
 end
