@@ -13,5 +13,8 @@
 
   <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
 
+  <%= f.label :course %>
+  <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
+
   <%= f.submit 'Submit'%>
 <% end %>

@@ -11,24 +11,37 @@
     <%= @cohort.end.strftime("%B%e, %Y") %>
   </div>
   <div class="profile_info">
+    <h3>Course</h3>
+    <ul>
+    <% if @cohort.course %>
+        <li><%= @cohort.course.name %></li>
+    <% else %>
+      <h4>No course to show</h4>
+    <% end %>
+    </ul>
     <h3>Instructor</h3>
+    <ul>
     <% if !@cohort.instructors.empty? %>
       <% @cohort.instructors.each do |i| %>
-        <%= i.name %>
+        <li><%= i.name %></li>
       <% end %>
     <% else %>
       <h4>No instructor assigned</h4>
     <% end %>
+    </ul>
   </div>
   <div class="profile_cohorts">
+    <h3>Students</h3>
+    <ul>
     <% if !@cohort.students.empty? %>
       <% @cohort.students.each do |s| %>
-        <%= s.name %>
-        <%= link_to "delete", admin_cohort_path(student_id: s.id), method: :delete, remote: true, data: { confirm: 'You sure?' } %>
+        <li><%= s.name %>
+        <%= link_to "delete", admin_cohort_path(student_id: s.id), method: :delete, remote: true, data: { confirm: 'You sure?' } %></li>
       <% end %>
     <% else %>
-      <h3>No students to show</h3>
+      <h4>No students to show</h4>
     <% end %>
+    </ul>
   </div>
 </div>
 

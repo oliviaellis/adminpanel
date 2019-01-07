@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_175652) do
+ActiveRecord::Schema.define(version: 2019_01_07_193036) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,13 +49,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_175652) do
     t.date "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cohorts_courses", force: :cascade do |t|
-    t.integer "cohort_id"
     t.integer "course_id"
-    t.index ["cohort_id"], name: "index_cohorts_courses_on_cohort_id"
-    t.index ["course_id"], name: "index_cohorts_courses_on_course_id"
+    t.index ["course_id"], name: "index_cohorts_on_course_id"
   end
 
   create_table "cohorts_instructors", force: :cascade do |t|
@@ -79,10 +74,23 @@ ActiveRecord::Schema.define(version: 2019_01_03_175652) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "instructors" because of following StandardError
-#   Unknown type '' for column 'string'
+  create_table "instructors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.integer "salary"
+    t.string "education"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-# Could not dump table "students" because of following StandardError
-#   Unknown type '' for column 'string'
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "education"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -12,6 +12,7 @@
     <%= f.label :end %>
     <%= f.date_field :end %><br>
 
+    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
     <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
     <%= collection_check_boxes(:cohort, :instructor_ids, Instructor.all, :id, :name) %>
     <%= f.submit 'Submit'%>

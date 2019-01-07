@@ -6,6 +6,7 @@ body {
    margin: 0;
    background-image: url('https://i.redd.it/1iwcit1gidyy.jpg');
    background-size: cover;
+   font-family: $main_font;
 }
 
 .error {
@@ -89,7 +90,7 @@ body {
   grid-template-rows: 60% 40%;
   grid-column-gap: 100px;
   grid-row-gap: 50px;
-  font-family: $main_font;
+  font-family: 'Audiowide';
   overflow: hidden;
   div {
     background-color: black;
@@ -150,6 +151,7 @@ body {
   margin: 5%;
   border: 2px solid $teal;
   background-color: black;
+  text-align: center;
   .list_item {
     border-bottom: 2px dashed white;
     padding-top: 10px;
@@ -176,9 +178,11 @@ body {
     font-family: $main_font;
     font-size: 3vh;
     color: white;
+    text-decoration: none;
   }
   a:visited {
     color:white;
+    text-decoration: none;
   }
 }
 

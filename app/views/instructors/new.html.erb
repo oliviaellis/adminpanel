@@ -8,7 +8,7 @@
   <%= f.label :age %>
   <%= f.number_field :age %>
   <%= f.label :education %>
-  <%= f.select :education, Instructor.educations.keys.to_a %>
+  <%= f.select :education, ["", "High School", "Bachelor\'s Degree", "Master\'s Degree", "Ph.D"] %>
   <%= f.label :salary %>
   <%= f.number_field :salary %>
   <%= f.label :avatar %>
