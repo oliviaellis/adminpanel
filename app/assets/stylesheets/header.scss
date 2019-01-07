@@ -1,0 +1,25 @@
+$main_font: 'Montserrat', sans-serif;
+$teal: rgb(0, 215, 203);
+$magenta: rgb(191, 0, 195);
+
+.header {
+  z-index: 1;
+  height: 8vh;
+  width: 23%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  font-family: $main_font;
+  background-color: rgb(155, 3, 168);
+  text-align: center;
+  h1 {
+    margin: 0;
+    margin-right: 2%;
+    text-shadow: 5px 5px black;
+    color: white;
+    font-family: $main_font;
+    font-size: 6vh;
+    font-style: italic;
+  }
+}

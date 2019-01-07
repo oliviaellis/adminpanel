@@ -1,17 +1,23 @@
-<h1> Edit <%= @instructor.first_name %> </h1>
-<%= form_for ([@admin, @instructor]) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <%= f.label :education %>
-  <%= f.select :education, Instructor.educations.keys.to_a %>
-  <%= f.label :salary %>
-  <%= f.number_field :salary %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="instructor_header">
+  <h1><%= @instructor.name %></h1>
+</div>
+<div class="edit">
+  <%= form_for ([@admin, @instructor]) do |f| %>
+    <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %><br>
+    <%= f.file_field :avatar, direct_upload: true %><br>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br>
+    <%= f.label :education %>
+    <%= f.select :education, Instructor.educations.keys.to_a %><br>
+    <%= f.label :salary %>
+    <%= f.number_field :salary %><br>
 
-  <%= f.submit 'Submit'%>
-<% end %>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

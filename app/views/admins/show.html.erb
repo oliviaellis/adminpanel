@@ -1,3 +1,4 @@
 <h3><%= @admin.first_name %></h3>
+<%= image_tag(@admin.avatar, width: 200) if @admin.avatar.attached? %> 
 <%= link_to 'Edit', edit_admin_path %> |
 <%= link_to 'Home', home_path %>

@@ -1,8 +1,35 @@
-<%= @cohort.name %>
-<ul>
-<% @cohort.students.each do |s| %>
-  <li><%= s.name %></li>
-  <%= link_to "delete", admin_cohort_path(student_id: s.id), method: :delete, data: { confirm: 'You sure?'} %>
-<% end %>
-</ul>
-<%= link_to "Edit", edit_admin_cohort_path %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="cohort_header">
+  <h1><%= @cohort.name %></h1>
+</div>
+<div class="profile">
+  <div class="profile_photo">
+    <h3>Cohort Start:</h3>
+    <%= @cohort.start.strftime("%B%e, %Y") %>
+    <h3>Cohort End:</h3>
+    <%= @cohort.end.strftime("%B%e, %Y") %>
+  </div>
+  <div class="profile_info">
+    <h3>Instructor</h3>
+    <% if !@cohort.instructors.empty? %>
+      <% @cohort.instructors.each do |i| %>
+        <%= i.name %>
+      <% end %>
+    <% else %>
+      <h4>No instructor assigned</h4>
+    <% end %>
+  </div>
+  <div class="profile_cohorts">
+    <% if !@cohort.students.empty? %>
+      <% @cohort.students.each do |s| %>
+        <%= s.name %>
+        <%= link_to "delete", admin_cohort_path(student_id: s.id), method: :delete, remote: true, data: { confirm: 'You sure?' } %>
+      <% end %>
+    <% else %>
+      <h3>No students to show</h3>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Edit", edit_admin_course_path %>

@@ -12,7 +12,7 @@ class CohortsController < ApplicationController
     else
       p @cohort.errors
       p "Failed"
-      render 'new'
+      redirect_to new_admin_cohort_path
     end
   end
 
@@ -34,7 +34,7 @@ class CohortsController < ApplicationController
     if @cohort.update_attributes(cohort_params)
       redirect_to admin_cohort_path
     else
-      render 'edit'
+      redirect_to edit_admin_cohort_path(id: @cohort.id)
     end
   end
 
@@ -48,6 +48,9 @@ class CohortsController < ApplicationController
     student = cohort.students.find(params[:student_id])
     if student
       cohort.students.delete(student)
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -55,7 +58,7 @@ class CohortsController < ApplicationController
   private
 
   def cohort_params
-    params.require(:cohort).permit(:name, :start, :end, student_ids:[])
+    params.require(:cohort).permit(:name, :start, :end, student_ids:[], instructor_ids:[])
   end
 
 end

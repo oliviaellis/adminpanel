@@ -1,8 +1,10 @@
-<div id="options_grid">
+<div id="navbar">
   <div id="cohorts"><%= link_to 'Cohorts', admin_cohorts_path(session[:user_id]) %></div>
-  <div id="students"><%= link_to 'Students', admin_students_path(session[:user_id]) %></div>
   <div id="courses"><%= link_to 'Courses', admin_courses_path(session[:user_id]) %></div>
+  <div id="students"><%= link_to 'Students', admin_students_path(session[:user_id]) %></div>
   <div id="instructors"><%= link_to 'Instructors', admin_instructors_path(session[:user_id]) %></div>
+  <div class="subheader">
+    <% user = Admin.find(session[:user_id]) %>
+    <%= link_to user.first_name, admin_path(user) %>
+  </div>
 </div>
-
-<%= link_to 'Log Out', logout_path %>

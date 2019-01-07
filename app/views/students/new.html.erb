@@ -1,19 +1,16 @@
+<%= render "shared/student_header" %>
 <h1>New Student</h1>
 <%= form_for ([@admin, @student]) do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
   <%= f.label :age %>
   <%= f.number_field :age %>
   <%= f.label :education %>
   <%= f.select :education, Student.educations.keys.to_a %>
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, direct_upload: true %>
 
   <%= f.submit 'Submit'%>
 <% end %>

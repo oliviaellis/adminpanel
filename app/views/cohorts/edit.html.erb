@@ -1,13 +1,19 @@
-<h1> Edit <%= @cohort.name %> </h1>
-<%= form_for ([@admin, @cohort]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :start %>
-  <%= f.date_field :start %>
-  <%= f.label :end %>
-  <%= f.date_field :end %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="cohort_header">
+  <h1><%= @cohort.name %></h1>
+</div>
+<div class="edit">
+  <%= form_for ([@admin, @cohort]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :start %>
+    <%= f.date_field :start %><br>
+    <%= f.label :end %>
+    <%= f.date_field :end %><br>
 
-  <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
-
-  <%= f.submit 'Submit'%>
-<% end %>
+    <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
+    <%= collection_check_boxes(:cohort, :instructor_ids, Instructor.all, :id, :name) %>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

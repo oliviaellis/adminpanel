@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+
   def show
     @admin = Admin.find(params[:id])
   end
@@ -16,6 +17,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.valid?
       @admin.save
+      log_in @admin
       redirect_to @admin
     else
       p @admin.errors
@@ -39,6 +41,6 @@ class AdminsController < ApplicationController
   private
 
     def admin_params
-      params.require(:admin).permit(:first_name, :last_name, :email, :password)
+      params.require(:admin).permit(:first_name, :last_name, :email, :password, :avatar)
     end
 end

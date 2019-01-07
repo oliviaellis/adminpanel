@@ -1,0 +1,29 @@
+$main_font: 'Montserrat', sans-serif;
+$teal: rgb(0, 215, 203);
+$magenta: rgb(191, 0, 195);
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 77%;
+  height: 8vh;
+  color: white;
+  background-color: $magenta;
+  font-family: $main_font;
+  display: inline;
+  div {
+    display: inline-block;
+    position: relative;
+    top: 25%;
+    padding-left: 30px;
+  }
+  .subheader {
+    position: absolute;
+    right: 20px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.8em;
+    color: white;
+  }
+}

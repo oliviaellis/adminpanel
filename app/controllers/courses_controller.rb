@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
     else
       p @course.errors
       p "Failed"
-      render 'new'
+      redirect_to new_admin_course_path
     end
   end
 
@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
     if @course.update_attributes(course_params)
       redirect_to admin_course_path
     else
-      render 'edit'
+      redirect_to edit_admin_course_path(id: @course.id)
     end
   end
 

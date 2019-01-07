@@ -1,9 +1,15 @@
-<h1> Edit <%= @course.name %> </h1>
-<%= form_for ([@admin, @course]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :hours %>
-  <%= f.number_field :hours %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="course_header">
+  <h1><%= @course.name %></h1>
+</div>
+<div class="edit">
+  <%= form_for ([@admin, @course]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :hours %>
+    <%= f.number_field :hours %><br>
 
-  <%= f.submit 'Submit'%>
-<% end %>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

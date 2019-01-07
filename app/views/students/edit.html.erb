@@ -1,15 +1,20 @@
-<h1> Edit <%= @student.first_name %> </h1>
-<%= form_for ([@admin, @student]) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <%= f.label :education %>
-  <%= f.select :education, Student.educations.keys.to_a %>
-
-  <%= f.submit 'Submit'%>
-<% end %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="student_header">
+  <h1><%= @student.name %></h1>
+</div>
+<div class="edit">
+  <%= form_for ([@admin, @student]) do |f| %>
+    <%= image_tag(@student.avatar, width: 300) if @student.avatar.attached? %><br>
+    <%= f.file_field :avatar, direct_upload: true %><br>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br>
+    <%= f.label :education %>
+    <%= f.select :education, Student.educations.keys.to_a %><br>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

@@ -1,10 +1,14 @@
-<h1>Instructors</h1>
-<% @instructors.each do |i| %>
-  <h2><%= link_to i.name, admin_instructor_path(id: i.id) %></h2>
-  <h3><%= i.age%></h3>
-  <h3><%= i.education %></h3>
-  <h3><%= i.salary %></h3>
-  <h4><%= link_to "Delete instructor", admin_instructor_path(id: i.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
-<% end %>
-
-<%= link_to 'New Instructor', new_admin_instructor_path %>
+<%= render "shared/instructor_header" %>
+<%= render "shared/navbar" %>
+<div class="list_container" id="instructor_list">
+  <% @instructors.each do |i| %>
+    <div class="list_item">
+      <%= link_to i.name, admin_instructor_path(id: i.id) %>
+    </div>
+    <!-- <h4><%= link_to "Delete instructor", admin_instructor_path(id: i.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4> -->
+  <% end %>
+  <br>
+  <div class="new">
+    <%= link_to 'New', new_admin_instructor_path %>
+  </div>
+</div>

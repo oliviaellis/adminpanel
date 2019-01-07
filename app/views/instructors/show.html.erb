@@ -1,2 +1,29 @@
-<%= @instructor.first_name %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="instructor_header">
+  <h1><%= @instructor.name %></h1>
+</div>
+<div class="profile">
+  <div class="profile_photo">
+    <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %>
+  </div>
+  <div class="profile_info">
+    <h2>Stats</h2>
+    <h3>Age: <%= @instructor.age %></h3>
+    <h3>Education: <%= @instructor.education %></h3>
+  </div>
+  <div class="profile_cohorts">
+    <h2>Cohorts</h2>
+    <ul>
+    <% if !@instructor.cohorts.empty? %>
+      <% @instructor.cohorts.each do |c| %>
+        <li><%= c.name %></li>
+      <% end %>
+    <% else %>
+      <h3>No cohorts to show</h3>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
 <%= link_to "Edit", edit_admin_instructor_path %>

@@ -12,7 +12,7 @@ class InstructorsController < ApplicationController
     else
       p @instructor.errors
       p "Failed"
-      render 'new'
+      redirect_to new_admin_instructor_path
     end
   end
 
@@ -34,7 +34,7 @@ class InstructorsController < ApplicationController
     if @instructor.update_attributes(instructor_params)
       redirect_to admin_instructor_path
     else
-      render 'edit'
+      redirect_to edit_admin_instructor_path(id: @instructor.id)
     end
   end
 
@@ -46,6 +46,6 @@ class InstructorsController < ApplicationController
   private
 
   def instructor_params
-    params.require(:instructor).permit(:first_name, :last_name, :email, :age, :education, :salary)
+    params.require(:instructor).permit(:first_name, :last_name, :email, :age, :education, :salary, :avatar)
   end
 end

@@ -1,2 +1,22 @@
-<%= @course.name %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="course_header">
+  <h1><%= @course.name %></h1>
+</div>
+<div class="profile">
+  <div class="profile_photo">
+    <h3>Hours:</h3>
+    <%= @course.hours %>
+  </div>
+  <div class="profile_info">
+    <% if !@course.cohorts.empty? %>
+      <% @course.cohorts.each do |c| %>
+        <%= c.name %>
+      <% end %>
+    <% else %>
+      <h3>No cohorts to show</h3>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to "Edit", edit_admin_course_path %>

@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
     else
       p @student.errors
       p "Failed"
-      render 'new'
+      redirect_to new_admin_student_path
     end
   end
 
@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
     if @student.update_attributes(student_params)
       redirect_to admin_student_path
     else
-      render 'edit'
+      redirect_to edit_admin_student_path(id: @student.id)
     end
   end
 
@@ -46,7 +46,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :age, :education)
+    params.require(:student).permit(:first_name, :last_name, :email, :age, :education, :avatar)
   end
 
 end

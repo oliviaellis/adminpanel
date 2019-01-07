@@ -1,11 +1,27 @@
-<h1>Students</h1>
-<% @students.each do |s| %>
-  <h2><%= link_to s.name, admin_student_path(id: s.id) %></h2>
-  <h3><%= s.age%></h3>
-  <h3><%= s.education %></h3>
-  <h4><%= link_to "Delete student", admin_student_path(id: s.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4>
-  <!-- Now I just need to figure out how to get the information off the page without reloading -->
+<%= render "shared/student_header" %>
+<%= render "shared/navbar" %>
+<div class="list_container" id="student_list">
+  <% @students.each do |s| %>
+    <div class="list_item" id="first_name">
+      <%= link_to s.first_name, admin_student_path(id: s.id) %>
+    </div>
+    <div class="list_item" id="last_name">
+      <%= link_to s.last_name, admin_student_path(id: s.id) %>
+    </div>
+    <div class="list_item" id="age">
+      <%= s.age %>
+    </div>
+    <div class="list_item" id="education">
+      <%= s.education %>
+    </div>
+    <div class="list_item" id="options">
+      <%= link_to "Show", admin_student_path(id: s.id) %>
+      <%= link_to "Edit", edit_admin_student_path(id: s.id) %>
+      <%= link_to "Delete", admin_student_path(id: s.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
+    </div>
+  <% end %>
+</div>
 
-<% end %>
-
-<%= link_to 'New Student', new_admin_student_path %>
+<div class="new">
+  <%= link_to 'New', new_admin_student_path %>
+</div>
