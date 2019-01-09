@@ -1,16 +1,21 @@
-<%= render "shared/student_header" %>
-<h1>New Student</h1>
-<%= form_for ([@admin, @student]) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <%= f.label :education %>
-  <%= f.select :education, ["", "High School", "Bachelor's Degree", "Master's Degree", "Ph.D"] %>
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar, direct_upload: true %>
+<%= render "shared/navbar" %>
+<div class="subheader"><h2><%= current_user.first_name %></h2></div>
+<div class="header" id="student_header">
+  <h1>New Student</h1>
+</div>
+<div class="edit">
+  <%= form_for ([@admin, @student]) do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.label :education %>
+    <%= f.select :education, ["", "High School", "Bachelor's Degree", "Master's Degree", "Ph.D"] %>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, direct_upload: true %>
 
-  <%= f.submit 'Submit'%>
-<% end %>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

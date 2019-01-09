@@ -4,6 +4,11 @@
   <h1><%= @instructor.name %></h1>
 </div>
 <div class="profile">
+  <div id="edit_button">
+    <%= link_to edit_admin_instructor_path do %>
+      <i class="fas fa-pen"></i>
+    <% end %>
+  </div>
   <div class="profile_photo">
     <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %>
   </div>
@@ -17,7 +22,7 @@
     <ul>
     <% if !@instructor.cohorts.empty? %>
       <% @instructor.cohorts.each do |c| %>
-        <li><%= c.name %></li>
+        <li><%= link_to c.name, admin_cohort_path(id: c.id) %></li>
       <% end %>
     <% else %>
       <h3>No cohorts to show</h3>
@@ -25,5 +30,3 @@
     </ul>
   </div>
 </div>
-
-<%= link_to "Edit", edit_admin_instructor_path %>

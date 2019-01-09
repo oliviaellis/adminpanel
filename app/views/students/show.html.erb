@@ -1,9 +1,13 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
 <div class="header" id="student_header">
   <h1><%= @student.name %></h1>
 </div>
 <div class="profile">
+  <div id="edit_button">
+    <%= link_to edit_admin_student_path do %>
+      <i class="fas fa-pen"></i>
+    <% end %>
+  </div>
   <div class="profile_photo">
     <%= image_tag(@student.avatar, width: 300) if @student.avatar.attached? %>
   </div>
@@ -11,17 +15,13 @@
     <h2>Stats</h2>
     <h3>Age: <%= @student.age %></h3>
     <h3>Education: <%= @student.education %></h3>
-  </div>
-  <div class="profile_cohorts">
     <h2>Cohorts</h2>
     <% if !@student.cohorts.empty? %>
       <% @student.cohorts.each do |c| %>
-        <%= c.name %>
+        <%= link_to c.name, admin_cohort_path(id: c.id) %>
       <% end %>
     <% else %>
       <h3>No cohorts to show</h3>
     <% end %>
   </div>
 </div>
-
-<%= link_to "Edit", edit_admin_student_path %>

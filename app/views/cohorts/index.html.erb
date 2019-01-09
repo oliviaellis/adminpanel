@@ -1,15 +1,32 @@
 <%= render "shared/cohort_header" %>
 <%= render "shared/navbar" %>
-<div class="list_container" id="cohort_list">
+<div class="container" id="cohort_list">
   <% @cohorts.each do |c| %>
-    <div class="list_item">
-      <h2><%= link_to c.name, admin_cohort_path(id: c.id)%><h2>
-      <%# <!-- <h4><%= link_to "Add student", cohort_path(c), method: :get %></h4>
-      <!-- <h4><%= link_to "Delete cohort", admin_cohort_path(id: c.id), remote: true, method: :delete, data: { confirm: 'You sure?'} %></h4> -->
+    <div class="row" id="cohort-<%= c.id %>">
+      <div class="col-sm-2">
+      <%= link_to c.name, admin_cohort_path(id: c.id)%>
+      </div>
+      <div class="col-sm">
+        <% if c.course %>
+          <%= link_to c.course.name, admin_course_path(id: c.course_id) %>
+        <% else %>
+          No course assigned
+        <% end %>
+      </div>
+      <div class="col-sm-2">
+        <%= c.start.strftime('%m/%d/%y') %>
+      </div>
+      <div class="col-sm-2">
+        <%= c.end.strftime('%m/%d/%y') %>
+      </div>
+      <div class="col-sm-2">
+        <%= link_to "Edit", edit_admin_cohort_path(id: c.id) %>
+        <%= link_to "Delete", admin_cohort_path(id: c.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
+      </div>
     </div>
   <% end %>
-  <br>
-  <div class="new">
-    <%= link_to 'New', new_admin_cohort_path %>
-  </div>
+</div>
+
+<div class="new">
+  <%= link_to 'New', new_admin_cohort_path %>
 </div>

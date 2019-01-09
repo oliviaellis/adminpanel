@@ -1,24 +1,25 @@
 <%= render "shared/student_header" %>
 <%= render "shared/navbar" %>
-<div class="list_container" id="student_list">
+<div class="container">
   <% @students.each do |s| %>
-    <div class="list_item" id="first_name">
+  <div class="row" id="student-<%= s.id %>">
+    <div class="col-sm">
       <%= link_to s.first_name, admin_student_path(id: s.id) %>
     </div>
-    <div class="list_item" id="last_name">
+    <div class="col-sm">
       <%= link_to s.last_name, admin_student_path(id: s.id) %>
     </div>
-    <div class="list_item" id="age">
+    <div class="col-sm">
       <%= s.age %>
     </div>
-    <div class="list_item" id="education">
+    <div class="col-sm">
       <%= s.education %>
     </div>
-    <div class="list_item" id="options">
-      <%= link_to "Show", admin_student_path(id: s.id) %>
+    <div class="col-sm">
       <%= link_to "Edit", edit_admin_student_path(id: s.id) %>
       <%= link_to "Delete", admin_student_path(id: s.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
     </div>
+  </div>
   <% end %>
 </div>
 

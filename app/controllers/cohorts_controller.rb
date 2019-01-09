@@ -43,22 +43,20 @@ class CohortsController < ApplicationController
     @cohort.destroy
   end
 
-  def remove_student_from_cohort
-    cohort = Cohort.find(params[:id])
-    student = cohort.students.find(params[:student_id])
-    if student
-      cohort.students.delete(student)
+  def remove_student
+    @cohort = Cohort.find(params[:cohort_id])
+    @student = Student.find(params[:id])
+    @cohort.students.delete(@student)
       respond_to do |format|
         format.js
       end
-    end
   end
 
 
   private
 
   def cohort_params
-    params.require(:cohort).permit(:name, :start, :end, :course_id, student_ids:[], instructor_ids:[])
+    params.require(:cohort).permit(:name, :start, :end, :course_id, :instructor_id, student_ids:[])
   end
 
 end

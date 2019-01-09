@@ -21,6 +21,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @admin = Admin.find(params[:admin_id])
     @student = Student.find(params[:id])
   end
 
@@ -46,7 +47,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :age, :education, :avatar)
+    params.require(:student).permit(:first_name, :last_name, :email, :age, :education, :avatar, cohort_ids:[])
   end
 
 end

@@ -1,6 +1,12 @@
 <div id="navbar">
-  <div id="logout"><%= link_to 'Logout', logout_path %></div>
-  <div id="home"><%= link_to 'Home', home_path %></div>
+  <div id="logout"><%= link_to logout_path do %>
+    <i class="fas fa-power-off"></i>
+    <% end %>
+  </div>
+  <div id="home"><%= link_to home_path do %>
+    <i class="fas fa-home"></i>
+    <% end %>
+  </div>
   <div id="cohorts"><%= link_to 'Cohorts', admin_cohorts_path(session[:user_id]) %></div>
   <div id="courses"><%= link_to 'Courses', admin_courses_path(session[:user_id]) %></div>
   <div id="students"><%= link_to 'Students', admin_students_path(session[:user_id]) %></div>

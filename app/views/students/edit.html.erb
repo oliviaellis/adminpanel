@@ -1,10 +1,15 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
 <div class="header" id="student_header">
   <h1><%= @student.name %></h1>
 </div>
 <div class="edit">
+  <div id="back_button">
+    <%= link_to admin_student_path do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+  </div>
   <%= form_for ([@admin, @student]) do |f| %>
+  <div class="proflile_photo"
     <%= image_tag(@student.avatar, width: 300) if @student.avatar.attached? %><br>
     <%= f.file_field :avatar, direct_upload: true %><br>
     <%= f.label :first_name %>
@@ -17,4 +22,5 @@
     <%= f.select :education, ["", "High School", "Bachelor's Degree", "Master's Degree", "Ph.D"] %>
     <%= f.submit 'Submit'%>
   <% end %>
+  </div>
 </div>

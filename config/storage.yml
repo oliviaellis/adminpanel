@@ -8,9 +8,15 @@ local:
 
 google:
   service: GCS
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  project: Pamela's Panel
+  bucket: pamelas-panel
+
+google_dev:
+  service: GCS
   credentials: <%= Rails.root.join("config/secret/pamelas-panel.json") %>
-  project: "Pamela's Panel"
-  bucket: "pamelas-panel"
+  project: Pamela's Panel
+  bucket: pamelas-panel
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:

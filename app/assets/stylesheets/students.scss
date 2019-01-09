@@ -10,27 +10,6 @@ $magenta: rgb(191, 0, 195);
   width: 30%;
 }
 
-.profile {
-  display: grid;
-  height: 75%;
-  width: 75%;
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 50% 50%;
-  position: relative;
-  top: 100px;
-  left: 15%;
-  border: 5px solid $teal;
-  background-color: black;
-  color: white;
-  margin: 5%;
-  h2 {
-    font-family: $main_font;
-  }
-  div {
-    border: 1px solid black;
-  }
-}
-
 .profile_photo {
   grid-row: 1 / span 2;
   text-align: center;

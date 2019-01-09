@@ -1,4 +1,4 @@
-$main_font: 'Montserrat', sans-serif;
+$main_font: 'Didact Gothic';
 $teal: rgb(0, 215, 203);
 $magenta: rgb(191, 0, 195);
 
@@ -7,6 +7,7 @@ body {
    background-image: url('https://i.redd.it/1iwcit1gidyy.jpg');
    background-size: cover;
    font-family: $main_font;
+   letter-spacing: 4px;
 }
 
 .error {
@@ -69,14 +70,19 @@ body {
     color: $teal;
     text-shadow: 0px 5px 5px black;
     transform: rotate(-5deg);
+    h1 {
+      font-size: 10.5rem;
+    }
   }
   #academy {
     font-family: 'Audiowide';
-    font-size: 10vh;
     color: white;
     text-shadow: 10px 10px black;
     position: relative;
     top: -50px;
+    h1 {
+      font-size: 10.5rem;
+    }
   }
 }
 
@@ -186,16 +192,71 @@ body {
   }
 }
 
+#edit_button {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  a {
+    color: white;
+    &:visited {
+      color:white;
+    }
+  }
+}
+
+#back_button {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  a {
+    color: white;
+    &:visited {
+      color:white;
+    }
+  }
+}
+
 .edit {
-  height: 75%;
-  width: 75%;
-  border: 5px solid $teal;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  border: 2px solid $teal;
   background-color: black;
-  position: relative;
-  top: 100px;
-  left: 15%;
-  margin: 5%;
-  text-align: center;
-  padding: 5% 0;
   color: white;
+  margin: 200px auto 0 auto;
+  width: 80%;
+  position: relative;
+}
+
+.profile {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  border: 2px solid $teal;
+  background-color: black;
+  color: white;
+  margin: 200px auto 0 auto;
+  width: 80%;
+  position: relative;
+  h2 {
+    font-family: $main_font;
+  }
+  div {
+    border: 1px solid black;
+  }
+}
+
+.container {
+  margin-top: 200px;
+  background-color: black;
+  border: 2px solid $teal;
+  padding: 3% 0;
+  text-align: center;
+  color: white;
+  a {
+    color: white;
+    &:visited {
+      color: white;
+    }
+  }
 }

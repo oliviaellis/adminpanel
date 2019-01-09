@@ -4,6 +4,11 @@
   <h1><%= @instructor.name %></h1>
 </div>
 <div class="edit">
+  <div id="back_button">
+    <%= link_to admin_instructor_path do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+  </div>
   <%= form_for ([@admin, @instructor]) do |f| %>
     <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %><br>
     <%= f.file_field :avatar, direct_upload: true %><br>

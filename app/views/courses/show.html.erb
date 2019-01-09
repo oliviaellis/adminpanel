@@ -4,19 +4,24 @@
   <h1><%= @course.name %></h1>
 </div>
 <div class="profile">
+  <div id="edit_button">
+    <%= link_to edit_admin_course_path do %>
+      <i class="fas fa-pen"></i>
+    <% end %>
+  </div>
   <div class="profile_photo">
     <h3>Hours:</h3>
     <%= @course.hours %>
-  </div>
-  <div class="profile_info">
+    <h3>Cohorts:</h3>
     <% if !@course.cohorts.empty? %>
       <% @course.cohorts.each do |c| %>
-        <%= c.name %>
+      <%= link_to c.name, admin_cohort_path(id: c.id) %>
       <% end %>
     <% else %>
-      <h3>No cohorts to show</h3>
+      <h3><%= link_to 'No cohorts to show', admin_cohorts_path %></h3>
     <% end %>
   </div>
-</div>
+  <div class="profile_info">
 
-<%= link_to "Edit", edit_admin_course_path %>
+  </div>
+</div>

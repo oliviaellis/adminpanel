@@ -5,8 +5,9 @@ $magenta: rgb(191, 0, 195);
 .header {
   z-index: 1;
   height: 8vh;
+  width: 100%;
   position: fixed;
-  top: 0;
+  top: 8vh;
   right: 0;
   color: white;
   font-family: $main_font;
