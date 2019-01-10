@@ -1,22 +1,21 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="cohort_header">
+<div class="header animated slideInDown">
   <h1><%= @cohort.name %></h1>
 </div>
-<div class="profile">
+<div class="profile animated zoomIn">
   <div id="edit_button">
     <%= link_to edit_admin_cohort_path do %>
       <i class="fas fa-pen"></i>
     <% end %>
   </div>
-  <div class="profile_photo">
-    <h3>Cohort Start:</h3>
+  <div class="profile_photo" id="cohort_info">
+    <h2>Cohort Start:</h2>
     <%= @cohort.start.strftime("%B%e, %Y") %>
-    <h3>Cohort End:</h3>
+    <h2>Cohort End:</h2>
     <%= @cohort.end.strftime("%B%e, %Y") %>
   </div>
   <div class="profile_info">
-    <h3>Course</h3>
+    <h2>Course</h2>
     <ul>
     <% if @cohort.course %>
       <li><%= link_to @cohort.course.name, admin_course_path(id: @cohort.course.id) %></li>
@@ -24,7 +23,7 @@
       <h4>No course to show</h4>
     <% end %>
     </ul>
-    <h3>Instructor</h3>
+    <h2>Instructor</h2>
     <ul>
     <% if @cohort.instructor %>
       <li><%= link_to @cohort.instructor.name, admin_instructor_path(id: @cohort.instructor_id) %></li>
@@ -34,12 +33,15 @@
     </ul>
   </div>
   <div class="profile_cohorts">
-    <h3>Students</h3>
+    <h2>Students</h2>
     <ul>
     <% if !@cohort.students.empty? %>
       <% @cohort.students.each do |s| %>
         <li><%= link_to s.name, admin_student_path(id: s.id) %>
-        <%= link_to "delete", remove_student_path(cohort_id: @cohort.id, id: s), remote: true, method: :delete, data: { confirm: 'You sure?' } %></li>
+        <%= link_to remove_student_path(cohort_id: @cohort.id, id: s), remote: true, method: :delete, data: { confirm: 'You sure?' } do %>
+          <span><i class="fas fa-times fa-xs"></i></span>
+        <%end%>
+      </li>
       <% end %>
     <% else %>
       <h4>No students to show</h4>

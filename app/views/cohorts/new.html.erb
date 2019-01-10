@@ -1,25 +1,28 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="student_header">
+<div class="header animated slideInDown">
   <h1>New Cohort</h1>
 </div>
-<div class="edit">
+<div class="edit animated zoomIn">
   <%= form_for ([@admin, @cohort]) do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
     <%= f.label :start %>
-    <%= f.date_field :start %>
+    <%= f.date_field :start %><br>
     <%= f.label :end %>
-    <%= f.date_field :end %>
+    <%= f.date_field :end %><br>
 
     <%= f.label :students %>
-    <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
+    <div id="student_boxes">
+      <%= f.collection_check_boxes(:student_ids, Student.all, :id, :name) do |b| %>
+        <div> <%= b.check_box %><%= b.label { b.text } %></div>
+      <% end %>
+    </div>
 
     <%= f.label :instructor %>
-    <%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :name) %>
+    <%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :name) %><br>
 
     <%= f.label :course %>
-    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
+    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %><br>
 
     <%= f.submit 'Submit'%>
   <% end %>

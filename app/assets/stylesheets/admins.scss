@@ -1,3 +1,57 @@
-// Place all the styles related to the Admins controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$main_font: 'Didact Gothic';
+$teal: rgb(0, 215, 203);
+$magenta: rgb(191, 0, 195);
+
+#show_admin, #edit_admin {
+  background-color: black;
+  background-image: none;
+  text-align: center;
+  h2 {
+    color: white;
+    font-family: 'Audiowide';
+  }
+  h3 {
+    color: white;
+  }
+  .placeholder_image {
+    margin: 5% auto 2% auto;
+  }
+  form {
+    text-align: left;
+    padding-left: 10%;
+  }
+}
+
+#admin_profile_info {
+  padding: 0;
+  padding-bottom: 5%;
+}
+
+#edit_admin {
+  background-size: 25px 25px;
+  background-image: linear-gradient(to right, $teal 1px, transparent 1px), linear-gradient(to bottom, $teal 1px, transparent 1px);
+}
+
+#new_admin_button, #delete_admin_button {
+  position: relative;
+  left: 30rem;
+  width: 10em;
+  margin: 0 3%;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 5px 5px black;
+  a {
+    color: white;
+    font-family: 'Audiowide';
+    text-shadow: 2px 2px black;
+    font-size: 2rem;
+  }
+}
+
+#new_admin_button {
+  background-color: $teal;
+}
+
+#delete_admin_button {
+  background-color: $magenta;
+}

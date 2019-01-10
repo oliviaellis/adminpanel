@@ -1,4 +1,23 @@
-<h3><%= @admin.first_name %></h3>
-<%= image_tag(@admin.avatar, width: 200) if @admin.avatar.attached? %> 
-<%= link_to 'Edit', edit_admin_path %> |
-<%= link_to 'Home', home_path %>
+<%= render "shared/navbar" %>
+<div class="header animated slideInDown">
+  <h1><%= @admin.name %></h1>
+</div>
+<div class="edit" id="show_admin">
+  <% if @admin.avatar.attached? %>
+    <%= image_tag(@admin.avatar, width: 200) %>
+  <% else %>
+    <div class="placeholder_image"></div>
+  <% end %>
+  <div id="edit_button">
+    <%= link_to edit_admin_path do %>
+      <i class="fas fa-pen"></i>
+    <% end %>
+  </div>
+  <div class="profile_info" id="admin_profile_info">
+    <h2><%= @admin.name %></h2>
+    <h3><%= @admin.email %></h3>
+  </div>
+</div>
+
+<div id="new_admin_button"><%= link_to 'New', new_admin_path %></div>
+<div id="delete_admin_button"><%= link_to 'Delete', admin_path, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %></div>

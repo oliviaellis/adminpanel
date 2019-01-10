@@ -1,16 +1,19 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="instructor_header">
+<div class="header animated slideInDown">
   <h1><%= @instructor.name %></h1>
 </div>
-<div class="profile">
+<div class="profile animated zoomIn">
   <div id="edit_button">
     <%= link_to edit_admin_instructor_path do %>
       <i class="fas fa-pen"></i>
     <% end %>
   </div>
   <div class="profile_photo">
-    <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %>
+    <% if @instructor.avatar.attached? %>
+      <%= image_tag(@instructor.avatar, width: 200) %>
+    <% else %>
+      <div class="placeholder_image"></div>
+    <% end %>
   </div>
   <div class="profile_info">
     <h2>Stats</h2>
@@ -19,14 +22,14 @@
   </div>
   <div class="profile_cohorts">
     <h2>Cohorts</h2>
-    <ul>
     <% if !@instructor.cohorts.empty? %>
+    <ul>
       <% @instructor.cohorts.each do |c| %>
         <li><%= link_to c.name, admin_cohort_path(id: c.id) %></li>
       <% end %>
+    </ul>
     <% else %>
       <h3>No cohorts to show</h3>
     <% end %>
-    </ul>
   </div>
 </div>

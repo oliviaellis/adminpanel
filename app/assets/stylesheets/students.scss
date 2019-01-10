@@ -13,8 +13,28 @@ $magenta: rgb(191, 0, 195);
 .profile_photo {
   grid-row: 1 / span 2;
   text-align: center;
+  margin: 10% auto;
 }
 
 .profile_info, .profile_cohorts {
   padding: 5%;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  a {
+    color: $teal;
+    &:visited {
+      color: $teal;
+    }
+  }
+}
+
+.profile_cohorts {
+  a {
+    color: $magenta;
+    &:visited {
+      color: $magenta;
+    }
+  }
 }

@@ -1,10 +1,14 @@
-<%= render "shared/course_header" %>
-<h1>New Course</h1>
-<%= form_for ([@admin, @course]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :hours %>
-  <%= f.number_field :hours %>
+<%= render "shared/navbar" %>
+<div class="header animated slideInDown">
+  <h1>New Course</h1>
+</div>
+<div class="edit animated zoomIn">
+  <%= form_for ([@admin, @course]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :hours %>
+    <%= f.number_field :hours %><br>
 
-  <%= f.submit 'Submit'%>
-<% end %>
+    <%= f.submit 'Submit'%>
+  <% end %>
+</div>

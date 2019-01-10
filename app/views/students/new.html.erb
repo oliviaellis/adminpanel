@@ -1,9 +1,8 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="student_header">
+<div class="header animated slideInDown">
   <h1>New Student</h1>
 </div>
-<div class="edit">
+<div class="edit animated zoomIn">
   <%= form_for ([@admin, @student]) do |f| %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

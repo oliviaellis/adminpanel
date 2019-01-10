@@ -1,9 +1,8 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="cohort_header">
+<div class="header animated slideInDown">
   <h1><%= @cohort.name %></h1>
 </div>
-<div class="edit">
+<div class="edit animated zoomIn">
   <div id="back_button">
     <%= link_to admin_cohort_path do %>
       <i class="fas fa-times"></i>
@@ -19,7 +18,12 @@
 
     <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
     <%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :name) %>
-    <%= collection_check_boxes(:cohort, :student_ids, Student.all, :id, :name) %>
-    <%= f.submit 'Submit'%>
+    <h4>Students:</h4>
+    <div id="student_boxes">
+      <%= f.collection_check_boxes(:student_ids, Student.all, :id, :name) do |b| %>
+        <div> <%= b.check_box %><%= b.label { b.text } %></div>
+      <% end %>
+    </div>
+    <%= f.submit 'Save changes'%>
   <% end %>
 </div>

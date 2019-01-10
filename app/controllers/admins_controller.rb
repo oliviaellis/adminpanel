@@ -26,16 +26,15 @@ class AdminsController < ApplicationController
     end
   end
 
-  def home
-    @admin = Admin.find(session[:user_id])
-  end
-
   def update
 
   end
 
   def destroy
-
+    @admin = Admin.find(session[:user_id])
+    log_out
+    @admin.destroy
+    redirect_to root_url
   end
 
   private

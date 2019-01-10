@@ -1,27 +1,26 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="course_header">
+<div class="header animated slideInDown">
   <h1><%= @course.name %></h1>
 </div>
-<div class="profile">
+<div class="profile animated zoomIn">
   <div id="edit_button">
     <%= link_to edit_admin_course_path do %>
       <i class="fas fa-pen"></i>
     <% end %>
   </div>
-  <div class="profile_photo">
+  <div class="profile_info" id="course_info">
+    <h2>Stats</h2>
     <h3>Hours:</h3>
     <%= @course.hours %>
-    <h3>Cohorts:</h3>
+    <h2>Cohorts:</h2>
     <% if !@course.cohorts.empty? %>
+    <ul>
       <% @course.cohorts.each do |c| %>
-      <%= link_to c.name, admin_cohort_path(id: c.id) %>
+      <li><%= link_to c.name, admin_cohort_path(id: c.id) %></li>
       <% end %>
+    </ul>
     <% else %>
       <h3><%= link_to 'No cohorts to show', admin_cohorts_path %></h3>
     <% end %>
-  </div>
-  <div class="profile_info">
-
   </div>
 </div>

@@ -1,3 +1,10 @@
 #course_list {
   grid-template-columns: 40% 20% 40%;
 }
+
+#course_info {
+  position: relative;
+  left: 50%;
+  text-align: center;
+  padding-top: 0;
+}

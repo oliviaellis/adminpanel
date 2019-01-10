@@ -6,6 +6,7 @@ body {
    margin: 0;
    background-image: url('https://i.redd.it/1iwcit1gidyy.jpg');
    background-size: cover;
+   background-attachment: fixed;
    font-family: $main_font;
    letter-spacing: 4px;
 }
@@ -13,7 +14,7 @@ body {
 .error {
   width: 100%;
   height: 40px;
-  padding-top: 20px;
+  padding-top: 10px;
   position: fixed;
   top: 0;
   background-color: rgb(240, 149, 149);
@@ -57,7 +58,7 @@ body {
   }
 }
 
-#logo {
+.logo {
   text-align: center;
   width: 100%;
   padding-top: 8%;
@@ -65,12 +66,13 @@ body {
     margin: 0;
   }
   #smash {
-    font-family: 'Yellowtail', cursive;
-    font-size: 8vh;
     color: $teal;
-    text-shadow: 0px 5px 5px black;
+    text-shadow: 0px 0px 29px $teal;
     transform: rotate(-5deg);
+    animation: text-flicker 3s linear infinite;
+    animation-delay: 3s;
     h1 {
+      font-family: 'Yellowtail', cursive;
       font-size: 10.5rem;
     }
   }
@@ -80,6 +82,7 @@ body {
     text-shadow: 10px 10px black;
     position: relative;
     top: -50px;
+    animation-duration: 0.5s;
     h1 {
       font-size: 10.5rem;
     }
@@ -98,6 +101,7 @@ body {
   grid-row-gap: 50px;
   font-family: 'Audiowide';
   overflow: hidden;
+  animation-duration: 0.5s;
   div {
     background-color: black;
     border: 10px solid $teal;
@@ -179,9 +183,13 @@ body {
   width: 100px;
   background-color: $magenta;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
+  position: relative;
+  margin: 3%;
+  left: 10%;
+  box-shadow: 3px 3px 5px rgb(142, 1, 149);
   a {
-    font-family: $main_font;
+    font-family: 'Audiowide';
     font-size: 3vh;
     color: white;
     text-decoration: none;
@@ -217,15 +225,38 @@ body {
 }
 
 .edit {
-  display: grid;
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 50% 50%;
   border: 2px solid $teal;
   background-color: black;
-  color: white;
-  margin: 200px auto 0 auto;
-  width: 80%;
+  color: black;
+  margin: 200px auto 50px auto;
+  width: 64rem;
   position: relative;
+  // Background grid effect dimensions and pattern
+  background-size: 2rem 2rem;
+  background-image: linear-gradient(to right, $teal 1px, transparent 1px), linear-gradient(to bottom, $teal 1px, transparent 1px);
+  box-shadow: 5px 5px 15px rgb(9, 105, 102);
+  form {
+    text-align: center;
+    background-color: $teal;
+    box-shadow: 10px 10px #222;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30rem;
+    padding: 5% 5%;
+    margin: 5% auto;
+    line-height: 1.5;
+    input {
+      margin: 5px 0;
+    }
+    select {
+      margin: 5px 0;
+      width: 65%;
+    }
+    img {
+      padding-bottom: 10px;
+    }
+  }
 }
 
 .profile {
@@ -236,13 +267,15 @@ body {
   background-color: black;
   color: white;
   margin: 200px auto 0 auto;
-  width: 80%;
+  width: 64rem;
   position: relative;
+  box-shadow: 5px 5px 15px rgb(9, 105, 102);
   h2 {
-    font-family: $main_font;
+    font-family: 'Audiowide';
+    margin-top: 7%;
   }
-  div {
-    border: 1px solid black;
+  h3 {
+    font-size: 1.5em;
   }
 }
 
@@ -253,10 +286,91 @@ body {
   padding: 3% 0;
   text-align: center;
   color: white;
+  box-shadow: 5px 5px 10px rgb(9, 105, 102);
   a {
     color: white;
     &:visited {
       color: white;
     }
+  }
+}
+
+span.edit_link {
+  a {
+    color: $teal;
+    &:visited {
+      color: $teal;
+    }
+  }
+}
+span.delete_link {
+  a {
+    color: $magenta;
+    &:visited {
+      color: $magenta;
+    }
+  }
+}
+
+.placeholder_image {
+  width: 200px;
+  height: 250px;
+  background-size: 25px 25px;
+  background-image: linear-gradient(to right, $teal 1px, transparent 1px), linear-gradient(to bottom, $teal 1px, transparent 1px);
+  border: 3px solid $teal;
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px $teal;
+  }
+
+  2% {
+    opacity:1;
+    text-shadow: 0px 0px 29px $teal;
+  }
+  8% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px $teal;
+  }
+  9% {
+    opacity:1;
+    text-shadow: 0px 0px 29px $teal;
+  }
+  12% {
+    opacity:0.1;
+    text-shadow: 0px 0px $teal;
+  }
+  20% {
+    opacity:1;
+    text-shadow: 0px 0px 29px $teal
+  }
+  25% {
+    opacity:0.3;
+    text-shadow: 0px 0px 29px $teal
+  }
+  30% {
+    opacity:1;
+    text-shadow: 0px 0px 29px $teal
+  }
+
+  70% {
+    opacity:0.7;
+    text-shadow: 0px 0px 29px $teal
+  }
+
+  72% {
+    opacity:0.2;
+    text-shadow:0px 0px 29px $teal
+  }
+
+  77% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px $teal
+  }
+  100% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px $teal
   }
 }

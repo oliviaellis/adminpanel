@@ -11,6 +11,7 @@ $magenta: rgb(191, 0, 195);
   background-color: $magenta;
   font-family: 'Audiowide';
   display: inline;
+  z-index: 2;
   div {
     display: inline-block;
     position: relative;
@@ -25,5 +26,8 @@ $magenta: rgb(191, 0, 195);
     text-decoration: none;
     font-size: 1.8em;
     color: white;
+    &:hover {
+      text-shadow: 3px 3px #222;
+    }
   }
 }

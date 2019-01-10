@@ -1,6 +1,6 @@
-<%= render "shared/cohort_header" %>
+<%= render "shared/cohort_header"%>
 <%= render "shared/navbar" %>
-<div class="container" id="cohort_list">
+<div class="container animated zoomIn" id="cohort_list">
   <% @cohorts.each do |c| %>
     <div class="row" id="cohort-<%= c.id %>">
       <div class="col-sm-2">
@@ -20,13 +20,13 @@
         <%= c.end.strftime('%m/%d/%y') %>
       </div>
       <div class="col-sm-2">
-        <%= link_to "Edit", edit_admin_cohort_path(id: c.id) %>
-        <%= link_to "Delete", admin_cohort_path(id: c.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
+        <span class="edit_link"><%= link_to "Edit", edit_admin_cohort_path(id: c.id) %></span>
+        <span class="delete_link"><%= link_to "Delete", admin_cohort_path(id: c.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %></span>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="new">
+<div class="new animated zoomIn">
   <%= link_to 'New', new_admin_cohort_path %>
 </div>

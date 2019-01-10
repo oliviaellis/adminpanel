@@ -1,16 +1,14 @@
 <%= render "shared/navbar" %>
-<div class="subheader"><h2><%= current_user.first_name %></h2></div>
-<div class="header" id="instructor_header">
+<div class="header animated slideInDown">
   <h1><%= @instructor.name %></h1>
 </div>
-<div class="edit">
+<div class="edit animated zoomIn">
   <div id="back_button">
     <%= link_to admin_instructor_path do %>
       <i class="fas fa-times"></i>
     <% end %>
   </div>
   <%= form_for ([@admin, @instructor]) do |f| %>
-    <%= image_tag(@instructor.avatar, width: 200) if @instructor.avatar.attached? %><br>
     <%= f.file_field :avatar, direct_upload: true %><br>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br>

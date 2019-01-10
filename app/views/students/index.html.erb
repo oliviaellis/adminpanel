@@ -1,6 +1,6 @@
 <%= render "shared/student_header" %>
 <%= render "shared/navbar" %>
-<div class="container">
+<div class="container animated zoomIn">
   <% @students.each do |s| %>
   <div class="row" id="student-<%= s.id %>">
     <div class="col-sm">
@@ -16,13 +16,13 @@
       <%= s.education %>
     </div>
     <div class="col-sm">
-      <%= link_to "Edit", edit_admin_student_path(id: s.id) %>
-      <%= link_to "Delete", admin_student_path(id: s.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
+      <span class="edit_link"><%= link_to "Edit", edit_admin_student_path(id: s.id) %></span>
+      <span class="delete_link"><%= link_to "Delete", admin_student_path(id: s.id), remote: true, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %></span>
     </div>
   </div>
   <% end %>
 </div>
 
-<div class="new">
+<div class="new animated zoomIn">
   <%= link_to 'New', new_admin_student_path %>
 </div>
