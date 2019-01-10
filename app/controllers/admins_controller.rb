@@ -27,7 +27,12 @@ class AdminsController < ApplicationController
   end
 
   def update
-
+    @admin = Admin.find(params[:id])
+    if @admin.update_attributes(admin_params)
+      redirect_to admin_path
+    else
+      redirect_to edit_admin_path(id: @admin.id)
+    end
   end
 
   def destroy

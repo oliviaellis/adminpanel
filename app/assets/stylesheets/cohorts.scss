@@ -1,5 +1,9 @@
 #cohort_list {
-  grid-template-columns: 20% 30% 15% 15% 20%;
+  grid-template-columns: 25% 25% 15% 15% 20%;
+  overflow: hidden;
+  div {
+    border-bottom: 1px solid teal;
+  }
 }
 
 #student_boxes {

@@ -5,17 +5,17 @@
 <div class="edit animated zoomIn">
   <%= form_for ([@admin, @instructor]) do |f| %>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name %><br>
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name %><br>
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age %><br>
     <%= f.label :education %>
-    <%= f.select :education, ["", "High School", "Bachelor\'s Degree", "Master\'s Degree", "Ph.D"] %>
+    <%= f.select :education, ["", "High School", "Bachelor\'s Degree", "Master\'s Degree", "Ph.D"] %><br>
     <%= f.label :salary %>
-    <%= f.number_field :salary %>
+    <%= f.number_field :salary %><br>
     <%= f.label :avatar %>
-    <%= f.file_field :avatar, direct_upload: true %>
+    <%= f.file_field :avatar, direct_upload: true %><br>
 
     <%= f.submit 'Submit'%>
   <% end %>
