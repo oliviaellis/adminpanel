@@ -1,0 +1,5 @@
+<% @admin.each do |a| %>
+  <%= a.name %> | <%= a.email %> | <%= link_to 'Delete', admin_path(id: a.id), method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
+<% end %>
+<br>
+<%= link_to 'Back', current_user %>

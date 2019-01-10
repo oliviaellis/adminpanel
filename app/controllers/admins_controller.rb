@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :superuser_check, only: [:index]
 
   def show
     @admin = Admin.find(params[:id])
@@ -11,6 +12,10 @@ class AdminsController < ApplicationController
 
   def edit
     @admin = Admin.find(params[:id])
+  end
+
+  def index
+    @admin = Admin.all
   end
 
   def create
@@ -46,5 +51,11 @@ class AdminsController < ApplicationController
 
     def admin_params
       params.require(:admin).permit(:first_name, :last_name, :email, :password, :avatar)
+    end
+
+    def superuser_check
+      unless current_user == Admin.find_by(email: 'masterhand@smash.com')
+        redirect_to admin_path
+      end
     end
 end
