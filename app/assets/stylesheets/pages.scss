@@ -105,6 +105,9 @@ body {
   div {
     background-color: black;
     border: 10px solid $teal;
+    &:hover {
+      text-shadow: 3px 3px $magenta;
+    }
   }
   a {
     color: white;
