@@ -1,8 +1,8 @@
 #cohort_list {
-  grid-template-columns: 25% 25% 15% 15% 20%;
+  padding-top: 2%;
   overflow: hidden;
   div {
-    border-bottom: 1px solid teal;
+    border-bottom: 1px solid rgba(0, 117, 121, 0.5);
   }
 }
 
@@ -17,4 +17,9 @@
 
 span {
   color: white;
+}
+
+.column_header {
+  font-family: 'Audiowide';
+  font-size: 2rem;
 }
