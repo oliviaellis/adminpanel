@@ -1,6 +1,17 @@
 <%= render "shared/course_header" %>
 <%= render "shared/navbar" %>
 <div class="container animated zoomIn" id="course_list">
+  <div class="row" id="course_headers">
+    <div class="col-sm-5 column_header">
+      Course
+    </div>
+    <div class="col-sm-4 column_header">
+      Hours
+    </div>
+    <div class="col-sm column_header">
+      Options
+    </div>
+  </div>
   <% @courses.each do |c| %>
   <div class="row" id="course-<%= c.id %>">
     <div class="col-sm-5">

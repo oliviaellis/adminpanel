@@ -4,7 +4,7 @@
 </div>
 <div class="edit" id="show_admin">
   <% if @admin.avatar.attached? %>
-    <%= image_tag(@admin.avatar, width: 200) %>
+    <div class="admin_photo"><%= image_tag(@admin.avatar, width: 200) %></div>
   <% else %>
     <div class="placeholder_image"></div>
   <% end %>
@@ -22,5 +22,5 @@
 <div id="new_admin_button"><%= link_to 'New', new_admin_path %></div>
 <div id="delete_admin_button"><%= link_to 'Delete', admin_path, method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %></div>
 <% if current_user == Admin.find_by(email: 'masterhand@smash.com') %>
-  <%= link_to 'All Admins', admins_path %>
+  <div id="admin_index_button"><%= link_to 'Admins', admins_path %></div>
 <% end %>

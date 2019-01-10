@@ -1,5 +1,5 @@
 #cohort_list {
-  padding-top: 2%;
+  padding: 2%;
   overflow: hidden;
   div {
     border-bottom: 1px solid rgba(0, 117, 121, 0.5);
@@ -19,7 +19,9 @@ span {
   color: white;
 }
 
-.column_header {
+#cohort_headers {
   font-family: 'Audiowide';
   font-size: 1.5rem;
+  position: relative;
+  top: -20px;
 }

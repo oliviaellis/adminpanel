@@ -1,6 +1,20 @@
 <%= render "shared/student_header" %>
 <%= render "shared/navbar" %>
 <div class="container animated zoomIn">
+  <div class="row" id="student_headers">
+    <div class="col-sm-2 column_header">
+      First
+    </div>
+    <div class="col-sm-3 column_header">
+      Last
+    </div>
+    <div class="col-sm-1 column_header">
+      Age
+    </div>
+    <div class="col-sm column_header">
+      Education
+    </div>
+  </div>
   <% @students.each do |s| %>
   <div class="row" id="student-<%= s.id %>">
     <div class="col-sm">

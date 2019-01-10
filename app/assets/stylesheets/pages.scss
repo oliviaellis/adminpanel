@@ -301,6 +301,9 @@ body {
 span.edit_link {
   a {
     color: $teal;
+    &:hover {
+      text-decoration: none;
+    }
     &:visited {
       color: $teal;
     }

@@ -1,5 +1,9 @@
-<% @admin.each do |a| %>
-  <%= a.name %> | <%= a.email %> | <%= link_to 'Delete', admin_path(id: a.id), method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %>
-<% end %>
+<%= render "shared/admin_header" %>
+<%= render "shared/navbar" %>
+<div class="container animated zoomIn">
+  <% @admin.each do |a| %>
+    <%= a.name %> | <%= a.email %> | <span class="delete_link"><%= link_to 'Delete', admin_path(id: a.id), method: :delete, data: { confirm: 'Are you sure? This action is permanent.'} %></span><br>
+  <% end %>
+</div>
 <br>
 <%= link_to 'Back', current_user %>

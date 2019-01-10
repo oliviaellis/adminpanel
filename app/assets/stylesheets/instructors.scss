@@ -1,3 +1,10 @@
 #instructor_list {
   grid-template-columns: 15% 15% 10% 10% 20% 30%;
 }
+
+#instructor_headers {
+  font-family: 'Audiowide';
+  font-size: 1.5rem;
+  position: relative;
+  top: -20px;
+}
