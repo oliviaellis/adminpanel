@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 Raven.configure do |config|
-  config.dsn = 'https://3236dcc3bb424fbfafc8c2ea08becab2:55c75509dcb549028fc58af28f9fac80@sentry.io/1363803'
+  config.dsn = ENV['SENTRY_KEY']
 end
 
 module AdminPanel
