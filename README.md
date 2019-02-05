@@ -1,6 +1,6 @@
 # Super Smash Academy
 
-Visit http://supersmashacademy.com to demo this Ruby on Rails-based CRUD app.
+Visit http://supersmashacademy.herokuapp.com to demo this Ruby on Rails-based CRUD app.
 Email: test@test.com
 Password: 123456
 
