@@ -1,24 +1,8 @@
-# README
+# Super Smash Academy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Visit http://supersmashacademy.com to demo this Ruby on Rails-based CRUD app.
+Email: test@test.com
+Password: 123456
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Add, edit, and delete students, instructors, courses, and cohorts in this administrative panel app.
+The vaporwave design keeps users clicking and belies my passion for HTML, CSS, and UX/UI.
